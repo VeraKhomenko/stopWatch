@@ -1,5 +1,6 @@
 body {
-  background:#2C3E50;
+  background:#2f8ff0;
+  font-family: sans-serif;
 }
 
 * {
@@ -30,12 +31,12 @@ body {
   text-align: center;
 }
 .stopwatch span{
-  color: #2C3E50;
+  color: #2f8ff0;
   display: inline-block;
-  font-family: sans-serif;
+  
   font-size: 22px;
   padding: 20px;
-  border: 2px solid #2C3E50;
+  border: 2px solid #2f8ff0;
   border-radius: 15px;
   width: 70px;
 }
@@ -54,8 +55,8 @@ body {
   cursor: pointer;
 }
 .stopwatch .stopwatch-btn-red{
-  border: 2px solid #C85454;
-  color: #C85454;
+  border: 2px solid #e92222;
+  color: #e92222;
 }
 .stopwatch .stopwatch-btn-yel{
   border: 2px solid #FFC900;
@@ -63,12 +64,12 @@ body {
 }
 
 .stopwatch .stopwatch-btn-blu{
-  border: 2px solid #2C3E50;
-  color: #2C3E50;
+  border: 2px solid #2f8ff0;
+  color: #2f8ff0;
 }
 .stopwatch .stopwatch-btn-red:hover {
-  background: #C85454;
-  border: 2px solid #C85454;
+  background: #e92222;
+  border: 2px solid #e92222;
   color: #fff;
 }
 .stopwatch .stopwatch-btn-yel:hover {
@@ -77,8 +78,8 @@ body {
   color: #fff;
 }
 .stopwatch .stopwatch-btn-blu:hover {
-  background: #2C3E50;
-  border: 2px solid #2C3E50;
+  background: #2f8ff0;
+  border: 2px solid #2f8ff0;
   color: #fff;
 }
 
@@ -88,18 +89,19 @@ body {
 }
 
 .link-project a {
-  color: #2C3E50;
-  text-decoration: none;
-  font-family: sans-serif;
+   
   font-size: 16px;
   font-weight: 400;
+  color: #2f8ff0;
+  text-decoration: none;
+
 }
 
 .app-title {
   font-size: 35px;
-  font-family: sans-serif;
+  
   font-weight: 700;
-  color: #2C3E50;
+  color: #2f8ff0;
   text-align: center;
   padding-top: 20px;
 }

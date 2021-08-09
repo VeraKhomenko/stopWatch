@@ -7,8 +7,6 @@ import Container from './components/Container/Container.jsx';
 import DisplayComponent from './components/DisplayComponent';
 import BtnComponent from './components/BtnComponent';
 
-
-
 function App() {
 
   const [ time, setTime ] = useState(0);
@@ -32,16 +30,14 @@ function App() {
     };
   }, [ watchOn ]);
 
-
-
   const handleStart = () => {
     setWatchOn(prevState => !prevState);
     setStatus(1);
   }
 
-
   const handleWait = () => {
-	    handleStart();
+    handleStart();
+    setStatus(1);
   }
 
   const handleStop = () => {
@@ -50,7 +46,6 @@ function App() {
     }
     setStatus(2);
   }
-
 
   const handleReset = () => {
     setTime(0);
