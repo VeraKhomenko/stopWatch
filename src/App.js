@@ -1,20 +1,17 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { interval, Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
+import { interval, Subject, Observable } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import Container from './components/Container/Container.jsx';
 import DisplayComponent from './components/DisplayComponent';
 import BtnComponent from './components/BtnComponent';
 
 function App() {
-
-  const [ time, setTime ] = useState(0);
-  const [ watchOn, setWatchOn ] = useState(false);
-  const [ status, setStatus ] = useState(0);
-
+  const [time, setTime] = useState(0);
+  const [watchOn, setWatchOn] = useState(false);
+  const [status, setStatus] = useState(0);
   useEffect(() => {
-
     const unsubscribe = new Subject();
     interval(10)
       .pipe(takeUntil(unsubscribe))
@@ -28,39 +25,54 @@ function App() {
       unsubscribe.next();
       unsubscribe.complete();
     };
-  }, [ watchOn ]);
+  }, [watchOn]);
 
   const handleStart = () => {
     setWatchOn(prevState => !prevState);
     setStatus(1);
-  }
-
-  const handleWait = () => {
-    handleStart();
-    setStatus(1);
-  }
+  };
 
   const handleStop = () => {
     if (time !== 0) {
       setWatchOn(false);
     }
     setStatus(2);
-  }
+  };
 
   const handleReset = () => {
     setTime(0);
     setWatchOn(false);
     setStatus(0);
-  }
+  };
+
+  const handleWait = () => {
+    setWatchOn(true);
+
+    const observable = new Observable(subscriber => {
+      setTimeout(() => {
+        subscriber.next(false);
+        watchOn && setStatus(3);
+        subscriber.complete();
+      }, 300);
+    });
+
+    observable.subscribe(val => {
+      setWatchOn(val);
+    });
+  };
+
+  //   const handleWait = () => {
+  // 	handleStart();
+  // 	setStatus(1);
+  //  }
+
   return (
     <Container>
-      <div className='main-section'>
-        <div className='clock-holder'>
-          <div className='app-title'>Stopwatch</div>
-          <div className='stopwatch'>
-            <DisplayComponent
-              time={time}
-            />
+      <div className="main-section">
+        <div className="clock-holder">
+          <div className="app-title">Stopwatch</div>
+          <div className="stopwatch">
+            <DisplayComponent time={time} />
             <BtnComponent
               start={handleStart}
               stop={handleStop}
@@ -69,11 +81,9 @@ function App() {
               status={status}
             />
           </div>
-
         </div>
       </div>
     </Container>
   );
 }
 export default App;
-

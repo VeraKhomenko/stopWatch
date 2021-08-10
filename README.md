@@ -1,6 +1,6 @@
 # stopWatch
 
-stopwatch React RxJs тестовое 
+stopwatch React RxJs тестовое
 
 Реализовать секундомер, который подсчитывает время в формате «HH: MM: SS»
 
